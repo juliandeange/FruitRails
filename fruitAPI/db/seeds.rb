@@ -12,7 +12,7 @@ category = Category.last
 
 Fruit.create({ category_id: category.id, name: "watermelon" })
 Fruit.create({ category_id: category.id, name: "honeydew" })
-Fruit.create({ category_id: category.id name: "cantaloupe"})
+Fruit.create({ category_id: category.id, name: "cantaloupe"})
 
 Category.create({ Fruit_Type: "berries" })
 
