@@ -16,6 +16,22 @@ class FruitController < ApplicationController
     end
 
     def create
+        fruit = Fruit.create(fruit_params)
+        fruit.category_id = params[:category_id]
+        if fruit.save
+            render json: {status: "SUCCESS", message: "Fruit created...", data:fruit},status: :ok
+        else
+            render json: {status: "ERROR", message: "Fruit not created...", data:fruit},status: :unprocessable_entity
+        end
+    end
+
+    def update
+        
+    end
+
+    private
+    def fruit_params
+        params.permit(:name)
     end
 
 end

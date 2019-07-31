@@ -19,7 +19,7 @@ class CategoryController < ApplicationController
         if category.save
             render json: {status: "SUCCESS", message: "Category created...", data:category},status: :ok
         else
-            render json: {status: "ERROR", message: "Category no created...", data:category},status: :unprocessable_entity
+            render json: {status: "ERROR", message: "Category not created...", data:category},status: :unprocessable_entity
         end
     end
 
