@@ -11,16 +11,18 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2019_07_31_171947) do
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+
+  create_table "categories", force: :cascade do |t|
     t.text "Fruit_Type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "fruits", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "fruits", force: :cascade do |t|
     t.integer "category_id"
     t.text "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
 end
