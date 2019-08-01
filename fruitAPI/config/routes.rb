@@ -4,6 +4,6 @@ Rails.application.routes.draw do
     resources :category do
         resources :fruit, only: [:show, :index, :create]
     end
-    resources :fruit, only: [:show]
+    resources :fruit, only: [:show, :update, :destroy]
 
 end

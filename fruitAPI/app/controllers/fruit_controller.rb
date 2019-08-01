@@ -1,5 +1,8 @@
 class FruitController < ApplicationController
 
+    ## CRUD
+
+    #Read
     def index
         # fruits = Fruit.all.where(:name => ["strawberry", "blackberry"])
         fruits = Fruit.all.where(:category_id => params[:category_id])
@@ -15,6 +18,7 @@ class FruitController < ApplicationController
         render json: {status: "SUCCESS", message: "Loaded fruit...", data:fruit}, status: :ok
     end
 
+    #Create
     def create
         fruit = Fruit.create(fruit_params)
         fruit.category_id = params[:category_id]
@@ -25,8 +29,22 @@ class FruitController < ApplicationController
         end
     end
 
+    #Delete
+    def destroy
+        Fruit.find(params[:id]).destroy
+        render json: {status: "SUCCESS", message: "Fruit deleted..."},status: :ok
+    end
+
+    #Update
     def update
-        
+
+        fruit = Fruit.find(params[:id])
+
+        if fruit.update_attributes(fruit_params)
+            render json: {status: "SUCCESS", message: "Fruit updated...", data:fruit},status: :ok
+        else
+            render json: {status: "ERROR", message: "Fruit not updated...", data:fruit},status: :ok
+        end
     end
 
     private
