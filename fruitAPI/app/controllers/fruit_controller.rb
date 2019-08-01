@@ -1,5 +1,9 @@
 class FruitController < ApplicationController
 
+    rescue_from ActiveRecord::RecordNotFound do |exception|
+        render json: {status: "ERROR", message: "Id of #{params[:id]} not found"}
+      end
+
     ## CRUD
 
     #Read
