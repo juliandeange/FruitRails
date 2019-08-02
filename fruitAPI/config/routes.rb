@@ -8,6 +8,11 @@ Rails.application.routes.draw do
     end
     resources :fruit, only: [:show, :update, :destroy]
 
-
+    #   /category                   GET, POST
+    #   /category/{id}              GET, PUT, DELETE
+    #   /category/{id}/fruit        GET, POST
+    #   /category/fruit/{id}        GET
+                   
+    #   /fruit/{id}                 GET, PUT, DELETE
 
 end
