@@ -10,6 +10,7 @@ class CategoryController < ApplicationController
     #Read
     def index 
         categories = Category.all
+        # add ".select("Fruit_Type, id")" to the end of the line above to select specific columns
         render json: {status: "SUCCESS", message: "Categories loaded...", data:categories},status: :ok
     end
 

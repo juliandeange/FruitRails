@@ -48,7 +48,7 @@ class FruitController < ApplicationController
         if fruit.update_attributes(fruit_params)
             render json: {status: "SUCCESS", message: "Fruit updated...", data:fruit},status: :ok
         else
-            render json: {status: "ERROR", message: "Fruit not updated...", data:fruit},status: :ok
+            render json: {status: "ERROR", message: "Fruit not updated...", data:fruit},status: :unprocessable_entity
         end
     end
 
